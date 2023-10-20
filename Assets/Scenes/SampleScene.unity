@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -200,9 +201,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 4, y: -3.64, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225d3ecbb244d844c8d865bd3f1a4383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapCSV: {fileID: 4900000, guid: 0ad9f366f4934a84f925cc2a09587a5b, type: 3}
+  tilePrefabs:
+  - {fileID: 5249944030166513993, guid: 5b155eec401cb1a4794d982bc4df3c3a, type: 3}
+  - {fileID: 6315617003552064441, guid: fa26b572e5011cf4282660dafeb84e34, type: 3}
+  - {fileID: 6881791312454469143, guid: f890a2761cea4544b802cb3d8fc5a391, type: 3}

@@ -20,10 +20,10 @@ public class moveScript : MonoBehaviour
     void MovePlayer()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        //float verticalInput = Input.GetAxis("Vertical");
 
 
-        Vector3 movement = new Vector3(horizontalInput, verticalInput, 0f) * moveSpeed * Time.deltaTime;
+        Vector3 movement = new Vector3(horizontalInput, 0f, 0f) * moveSpeed * Time.deltaTime;
         transform.Translate(movement);
     }
 }
