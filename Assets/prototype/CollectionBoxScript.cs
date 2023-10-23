@@ -20,7 +20,7 @@ public class CollectionBoxScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void SetCount()
@@ -34,11 +34,11 @@ public class CollectionBoxScript : MonoBehaviour
                 defaultDrag = 0;
             }
             rb2d.drag = defaultDrag;
-           
+
         }
         Debug.Log("Drag" + defaultDrag);
     }
-    public void LoseCount()
+    private void LoseCount()
     {
         if (count > 0)
         {
@@ -47,6 +47,17 @@ public class CollectionBoxScript : MonoBehaviour
         }
         rb2d.drag = defaultDrag;
         Debug.Log("Drag" + defaultDrag);
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // “G‚Æ‚ÌÕ“Ë‚Åæ“¾•¨‚ÌŒ¸­
+        // ‰¼‚ÅƒvƒŒƒCƒ„[‚ğİ’è
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            LoseCount();
+        }
     }
 
 }
