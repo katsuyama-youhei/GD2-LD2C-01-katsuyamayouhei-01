@@ -6,6 +6,7 @@ public class playerdirection : MonoBehaviour
 {
     private GameObject player;
     private GameObject collectionBox;
+    private SpriteRenderer spriteRenderer;
     private Vector3 wapu = new Vector3(1f, 0f, 0f);
    // éÊìæè„å¿
     private int count;
@@ -14,6 +15,7 @@ public class playerdirection : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         collectionBox = GameObject.FindGameObjectWithTag("Cage");
+        spriteRenderer= gameObject.GetComponent<SpriteRenderer>();
         count = 0;
     }
 
@@ -37,6 +39,10 @@ public class playerdirection : MonoBehaviour
         else if (verticalInput < 0)
         {
             wapu = new Vector3(0f, -1f, 0f);
+        }
+        else if(verticalInput > 0) 
+        {
+            wapu = new Vector3(0f, 1f, 0f);
         }
     }
 
@@ -89,6 +95,22 @@ public class playerdirection : MonoBehaviour
                     CollectionBox2AddCount();
                 }
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Cage"))
+        {
+            spriteRenderer.color = Color.green;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Cage"))
+        {
+            spriteRenderer.color = Color.white;
         }
     }
 

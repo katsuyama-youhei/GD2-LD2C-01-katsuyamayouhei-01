@@ -34,7 +34,8 @@ public class CollectionBoxScript : MonoBehaviour
                 defaultDrag = 0;
             }
             rb2d.drag = defaultDrag;
-            Debug.Log("" + defaultDrag);
+           
         }
+        Debug.Log("Drag" + defaultDrag);
     }
 }
