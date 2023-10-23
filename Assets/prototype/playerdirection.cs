@@ -5,6 +5,7 @@ using UnityEngine;
 public class playerdirection : MonoBehaviour
 {
     private GameObject player;
+    private GameObject collectionBox;
     private Vector3 wapu = new Vector3(1f, 0f, 0f);
    // 取得上限
     private int count;
@@ -12,6 +13,7 @@ public class playerdirection : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        collectionBox = GameObject.FindGameObjectWithTag("Cage");
         count = 0;
     }
 
@@ -20,15 +22,7 @@ public class playerdirection : MonoBehaviour
     {
         PositionMove();
 
-        // この条件を変えて取得物のリリースを行う
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (count > 0)
-            {
-                count--;
-                Debug.Log("count" + count);
-            }
-        }
+       
 
 
     }
@@ -85,6 +79,20 @@ public class playerdirection : MonoBehaviour
 
             }
         }
+
+        if (other.CompareTag("Cage"))
+        {
+            // この条件を変えて取得物のリリースを行う
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                if (count > 0)
+                {
+                    count--;
+                    Debug.Log("count" + count);
+                    CollectionBox2AddCount();
+                }
+            }
+        }
     }
 
     private void PositionMove()
@@ -116,5 +124,16 @@ public class playerdirection : MonoBehaviour
         transform.position = playerposition + wapu;
     }
 
-
+    private void CollectionBox2AddCount()
+    {
+        if (collectionBox == null)
+        {
+            return;
+        }
+        CollectionBoxScript collectionBoxScript= collectionBox.GetComponent<CollectionBoxScript>();
+        if (collectionBoxScript == null) {
+            return;
+        }
+        collectionBoxScript.SetCount();
+    }
 }
