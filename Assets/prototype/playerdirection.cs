@@ -106,6 +106,16 @@ public class playerdirection : MonoBehaviour
         if (other.CompareTag("Cage"))
         {
             spriteRenderer.color = Color.green;
+            // ‚±‚ÌðŒ‚ð•Ï‚¦‚ÄŽæ“¾•¨‚ÌƒŠƒŠ[ƒX‚ðs‚¤
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                if (count > 0)
+                {
+                    count--;
+                    Debug.Log("count" + count);
+                    CollectionBox2AddCount();
+                }
+            }
         }
     }
 

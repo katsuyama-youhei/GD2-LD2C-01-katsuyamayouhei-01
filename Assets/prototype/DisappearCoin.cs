@@ -4,27 +4,12 @@ using UnityEngine;
 
 public class DisappearCoin : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    Rigidbody2D rb;
+    public float defaultDrag;
+    private void Start()
     {
-        if (other.CompareTag("Wakuwaku"))
-        {
-            //Debug.Log("out");
-            // gameObject.SetActive(false);
-            if (Input.GetKey(KeyCode.Space))
-            {
-             //   Destroy(gameObject);
-            }
-        }
+        rb=gameObject.GetComponent<Rigidbody2D>();
+        rb.drag = defaultDrag;
     }
 
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag("Wakuwaku"))
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-               // Destroy(gameObject);
-            }
-        }
-    }
 }

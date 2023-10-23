@@ -38,4 +38,15 @@ public class CollectionBoxScript : MonoBehaviour
         }
         Debug.Log("Drag" + defaultDrag);
     }
+    public void LoseCount()
+    {
+        if (count > 0)
+        {
+            count--;
+            defaultDrag += 10.0f;
+        }
+        rb2d.drag = defaultDrag;
+        Debug.Log("Drag" + defaultDrag);
+    }
+
 }
