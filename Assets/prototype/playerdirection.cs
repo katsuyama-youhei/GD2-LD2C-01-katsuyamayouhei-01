@@ -7,6 +7,8 @@ public class playerdirection : MonoBehaviour
     private GameObject player;
     private GameObject collectionBox;
     private SpriteRenderer spriteRenderer;
+    private CollectionBoxScript collectionBoxScript;
+    private ShutokuScript shutokuScript;
     private Vector3 wapu = new Vector3(1f, 0f, 0f);
    // 取得上限
     private int count;
@@ -16,6 +18,7 @@ public class playerdirection : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         collectionBox = GameObject.FindGameObjectWithTag("Cage");
         spriteRenderer= gameObject.GetComponent<SpriteRenderer>();
+        CheakNull();
         count = 0;
     }
 
@@ -116,20 +119,7 @@ public class playerdirection : MonoBehaviour
 
     private void PositionMove()
     {
-        //　プレイヤーをとれているかの確認
-        if (player == null)
-        {
-            return;
-        }
-        
-        //　プレイヤーの変数を取得
-        ShutokuScript shutokuScript = player.GetComponent<ShutokuScript>();
-        
-        //　プレイヤーの変数を取得できたかの確認
-        if (shutokuScript == null)
-        {
-            return;
-        }
+      
         
         // プレイヤーの位置を取得
         Vector3 playerposition = shutokuScript.transform.position;
@@ -145,14 +135,35 @@ public class playerdirection : MonoBehaviour
 
     private void CollectionBox2AddCount()
     {
+      
+        collectionBoxScript.SetCount();
+    }
+
+    private void CheakNull()
+    {
         if (collectionBox == null)
         {
             return;
         }
-        CollectionBoxScript collectionBoxScript= collectionBox.GetComponent<CollectionBoxScript>();
-        if (collectionBoxScript == null) {
+        collectionBoxScript = collectionBox.GetComponent<CollectionBoxScript>();
+        if (collectionBoxScript == null)
+        {
             return;
         }
-        collectionBoxScript.SetCount();
+
+        //　プレイヤーをとれているかの確認
+        if (player == null)
+        {
+            return;
+        }
+
+        //　プレイヤーの変数を取得
+        shutokuScript = player.GetComponent<ShutokuScript>();
+
+        //　プレイヤーの変数を取得できたかの確認
+        if (shutokuScript == null)
+        {
+            return;
+        }
     }
 }
