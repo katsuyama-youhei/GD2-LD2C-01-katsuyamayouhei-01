@@ -20,14 +20,21 @@ public class CollectionBoxScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (count != 0)
-        {
-            Debug.Log("CollectionBox" + count);
-        }
+        
     }
 
     public void SetCount()
     {
         count++;
+        if (defaultDrag > 0)
+        {
+            defaultDrag -= 10.0f;
+            if (defaultDrag < 0)
+            {
+                defaultDrag = 0;
+            }
+            rb2d.drag = defaultDrag;
+            Debug.Log("" + defaultDrag);
+        }
     }
 }
