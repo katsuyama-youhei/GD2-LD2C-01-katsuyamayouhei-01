@@ -5,19 +5,19 @@ using UnityEngine;
 public class GameManagerScript : MonoBehaviour
 {
 
-    GameObject player;
+   // GameObject player;
     // Start is called before the first frame update
     void Start()
     {
         // プレイヤーオブジェクトをタグで検索
-        player = GameObject.FindGameObjectWithTag("Player");
+        //player = GameObject.FindGameObjectWithTag("Player");
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        // プレイヤーが見つからない場合
+    /*    // プレイヤーが見つからない場合
         if (player == null)
         {
             Debug.LogError("プレイヤーが見つかりません。ゲームを終了します。");
@@ -27,6 +27,6 @@ public class GameManagerScript : MonoBehaviour
 #else
             Application.Quit();
 #endif
-        }
+        }*/
     }
 }
