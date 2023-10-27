@@ -28,11 +28,6 @@ public class ShutokuScript : MonoBehaviour
         transform.position += movement * moveSpeed * Time.deltaTime;
 
         UpdatePlayerDirection(horizontalInput);
-
-        if (transform.position.y < -10.0f)
-        {
-            Destroy(gameObject);
-        }
     }
 
     void UpdatePlayerDirection(float horizontalInput)
