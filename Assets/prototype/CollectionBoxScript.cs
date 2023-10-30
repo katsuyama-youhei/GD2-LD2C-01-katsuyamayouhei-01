@@ -5,27 +5,41 @@ using UnityEngine;
 public class CollectionBoxScript : MonoBehaviour
 {
     Rigidbody2D rb2d;
+    //　抵抗の初期値
     private float defaultDrag = 100.0f;
-    private int count;
+    //　回収した数
+    public int count;
+
+    private float lostTimer = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        // オブジェクトの当たり判定を取得
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         // オブジェクトの抵抗値を設定
         rb2d.drag = defaultDrag;
         count = 0;
+     
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (lostTimer > 0)
+        {
+            lostTimer -= Time.deltaTime;
+        }
+        Debug.Log("timer" + lostTimer);
+        
     }
 
+    // プレイヤーから渡されたとき
     public void SetCount()
     {
+        // 取得数を増加
         count++;
+        // 抵抗値を下げ落下を早める
         if (defaultDrag > 0)
         {
             defaultDrag -= 10.0f;
@@ -38,23 +52,32 @@ public class CollectionBoxScript : MonoBehaviour
         }
         Debug.Log("Drag" + defaultDrag);
     }
+
+    // 取得物を紛失
     private void LoseCount()
     {
+        // 取得数が0ではないとき
         if (count > 0)
         {
-            count--;
-            defaultDrag += 10.0f;
+            if (lostTimer <= 0)
+            {
+                count--;
+                //　軽くなり抵抗値を増加
+                defaultDrag += 10.0f;
+                lostTimer = 2.0f;
+            }
+           
         }
         rb2d.drag = defaultDrag;
-        Debug.Log("Drag" + defaultDrag);
+        Debug.Log("Drag" + rb2d.drag);
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // 敵との衝突で取得物の減少
-        // 仮でプレイヤーを設定
-        if (collision.gameObject.CompareTag("Player"))
+      
+        if (collision.gameObject.CompareTag("EnemyCollision"))
         {
             LoseCount();
         }

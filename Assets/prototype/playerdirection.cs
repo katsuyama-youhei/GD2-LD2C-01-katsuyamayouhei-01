@@ -10,14 +10,15 @@ public class playerdirection : MonoBehaviour
     private CollectionBoxScript collectionBoxScript;
     private ShutokuScript shutokuScript;
     private Vector3 wapu = new Vector3(1f, 0f, 0f);
-   // 取得上限
+    // 取得上限
     private int count;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         collectionBox = GameObject.FindGameObjectWithTag("Cage");
-        spriteRenderer= gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         CheakNull();
         count = 0;
     }
@@ -25,7 +26,7 @@ public class playerdirection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PositionMove();         
+        PositionMove();
 
     }
     // プレイヤーの向き
@@ -43,7 +44,7 @@ public class playerdirection : MonoBehaviour
         {
             wapu = new Vector3(0f, -1f, 0f);
         }
-        else if(verticalInput > 0) 
+        else if (verticalInput > 0)
         {
             wapu = new Vector3(0f, 1f, 0f);
         }
@@ -69,6 +70,7 @@ public class playerdirection : MonoBehaviour
         // コインとぶつかっているときに取得
         if (other.CompareTag("BoxCoin"))
         {
+
             if (Input.GetKey(KeyCode.Space))
             {
                 // 取得上限以下なら取得
@@ -89,7 +91,7 @@ public class playerdirection : MonoBehaviour
         if (other.CompareTag("Cage"))
         {
             // この条件を変えて取得物のリリースを行う
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (count > 0)
                 {
@@ -107,7 +109,7 @@ public class playerdirection : MonoBehaviour
         {
             spriteRenderer.color = Color.green;
             // この条件を変えて取得物のリリースを行う
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (count > 0)
                 {
@@ -117,35 +119,38 @@ public class playerdirection : MonoBehaviour
                 }
             }
         }
+        else if (other.CompareTag("BoxCoin"))
+        {
+            spriteRenderer.color = Color.blue;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Cage"))
-        {
-            spriteRenderer.color = Color.white;
-        }
+
+        spriteRenderer.color = Color.white;
+
     }
 
     private void PositionMove()
     {
-      
-        
+
+
         // プレイヤーの位置を取得
         Vector3 playerposition = shutokuScript.transform.position;
-        
+
         // プレイヤーの向きを判定
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         Direction(horizontalInput, verticalInput);
-        
+
         //プレイヤーの向いている方向に移動
         transform.position = playerposition + wapu;
     }
 
     private void CollectionBox2AddCount()
     {
-      
+
         collectionBoxScript.SetCount();
     }
 
