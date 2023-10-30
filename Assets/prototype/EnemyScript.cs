@@ -6,7 +6,7 @@ using DG.Tweening;
 public class EnemyScript : MonoBehaviour
 {
     public Transform target;
-    private bool detection;
+    public bool detection;
     private float movementSpeed = 0.2f;
     private Rigidbody2D rb;
     private Sequence loopSequence;
@@ -52,13 +52,18 @@ public class EnemyScript : MonoBehaviour
 
     }
 
+    private void CollisionMove()
+    {
+
+    }
+
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Cage"))
+       /* if (other.CompareTag("Cage"))
         {
             detection = false;
             Debug.Log("DisHit");
-        }
+        }*/
     }
 
  /*   private void OnTriggerStay2D(Collider2D other)
@@ -73,11 +78,11 @@ public class EnemyScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Cage"))
+      /*  if (other.CompareTag("Cage"))
         {
             detection = true;
             Debug.Log("Hit");
-        }
+        }*/
     }
 
 }

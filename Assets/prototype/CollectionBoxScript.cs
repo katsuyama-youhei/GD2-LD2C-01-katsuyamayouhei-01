@@ -77,7 +77,7 @@ public class CollectionBoxScript : MonoBehaviour
     {
         // “G‚Æ‚ÌÕ“Ë‚Åæ“¾•¨‚ÌŒ¸­
       
-        if (collision.gameObject.CompareTag("EnemyCollision"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             LoseCount();
         }
