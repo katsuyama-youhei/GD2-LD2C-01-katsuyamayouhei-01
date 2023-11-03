@@ -11,7 +11,7 @@ public class playerdirection : MonoBehaviour
     private ShutokuScript shutokuScript;
     private Vector3 wapu = new Vector3(1f, 0f, 0f);
     // æ“¾ãŒÀ
-    private int count;
+    public int count;
 
     // Start is called before the first frame update
     void Start()
