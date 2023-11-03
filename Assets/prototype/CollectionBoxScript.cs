@@ -38,7 +38,7 @@ public class CollectionBoxScript : MonoBehaviour
     public void SetCount()
     {
         // Žæ“¾”‚ð‘‰Á
-        count++;
+        count+=1;
         // ’ïR’l‚ð‰º‚°—Ž‰º‚ð‘‚ß‚é
         if (defaultDrag > 0)
         {
