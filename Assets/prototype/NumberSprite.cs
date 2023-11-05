@@ -19,6 +19,7 @@ public class NumberSprite : MonoBehaviour
     public Sprite sprite9;
 
     private SpriteRenderer sprites;
+    public GorlScript gorlScript;
 
     private void CheakNull()
     {
@@ -28,6 +29,10 @@ public class NumberSprite : MonoBehaviour
         }
         collectionBoxScript = collectionBox.GetComponent<CollectionBoxScript>();
         if (collectionBoxScript == null)
+        {
+            return;
+        }
+        if (gorlScript == null)
         {
             return;
         }
@@ -86,6 +91,15 @@ public class NumberSprite : MonoBehaviour
         {
 
             sprites.sprite = sprite0;
+        }
+
+        if (collectionBoxScript.count >= gorlScript.needNumber)
+        {
+            sprites.color = Color.yellow;
+        }
+        else
+        {
+            sprites.color = Color.white;
         }
 
     }
