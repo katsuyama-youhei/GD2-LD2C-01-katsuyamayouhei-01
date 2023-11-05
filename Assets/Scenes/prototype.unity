@@ -1088,6 +1088,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clearText: {fileID: 914346499}
   gorlScript: {fileID: 452549680}
+  loadScene: TitleProto
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeSpeedMultiplier: 1
 --- !u!1001 &982592319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3094,11 +3097,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 398002657317953352, guid: 824ffb958879db04fb397e6fe9d6413e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 8.712281
+      value: 15.90355
       objectReference: {fileID: 0}
     - target: {fileID: 398002657317953352, guid: 824ffb958879db04fb397e6fe9d6413e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.1736
+      value: 0.0525
       objectReference: {fileID: 0}
     - target: {fileID: 398002657317953352, guid: 824ffb958879db04fb397e6fe9d6413e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3426,6 +3429,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 966695079}
+    - target: {fileID: 332228006108417950, guid: aadf8ee5528fd44409dd5b2477fe9ef7, type: 3}
+      propertyPath: gorlScript
+      value: 
+      objectReference: {fileID: 452549680}
     - target: {fileID: 3983267907673938782, guid: aadf8ee5528fd44409dd5b2477fe9ef7, type: 3}
       propertyPath: m_RootOrder
       value: 2
