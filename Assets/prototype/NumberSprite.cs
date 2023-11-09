@@ -92,6 +92,47 @@ public class NumberSprite : MonoBehaviour
 
             sprites.sprite = sprite0;
         }
+        else if (collectionBoxScript.count == 10)
+        {
+
+            sprites.sprite = sprite0;
+        }
+        else if (collectionBoxScript.count == 11)
+        {
+            sprites.sprite = sprite1;
+        }
+        else if (collectionBoxScript.count == 12)
+        {
+            sprites.sprite = sprite2;
+        }
+        else if (collectionBoxScript.count == 13)
+        {
+            sprites.sprite = sprite3;
+        }
+        else if (collectionBoxScript.count == 14)
+        {
+            sprites.sprite = sprite4;
+        }
+        else if (collectionBoxScript.count == 15)
+        {
+            sprites.sprite = sprite5;
+        }
+        else if (collectionBoxScript.count == 16)
+        {
+            sprites.sprite = sprite6;
+        }
+        else if (collectionBoxScript.count == 17)
+        {
+            sprites.sprite = sprite7;
+        }
+        else if (collectionBoxScript.count == 18)
+        {
+            sprites.sprite = sprite8;
+        }
+        else if (collectionBoxScript.count == 19)
+        {
+            sprites.sprite = sprite9;
+        }
 
         if (collectionBoxScript.count >= gorlScript.needNumber)
         {

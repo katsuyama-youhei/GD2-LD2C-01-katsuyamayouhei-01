@@ -61,7 +61,7 @@ public class CollectionBoxScript : MonoBehaviour
         {
             if (lostTimer <= 0)
             {
-                count--;
+                count-=1;
                 //@Œy‚­‚È‚è’ïR’l‚ð‘‰Á
                 defaultDrag += 10.0f;
                 lostTimer = 2.0f;

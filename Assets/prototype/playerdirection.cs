@@ -20,7 +20,7 @@ public class playerdirection : MonoBehaviour
         collectionBox = GameObject.FindGameObjectWithTag("Cage");
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         CheakNull();
-        count = 0;
+        
     }
 
     // Update is called once per frame
@@ -76,7 +76,7 @@ public class playerdirection : MonoBehaviour
                 // æ“¾ãŒÀˆÈ‰º‚È‚çæ“¾
                 if (count < 5)
                 {
-                    count++;
+                    count+=1;
                     Debug.Log("count" + count);
                     Destroy(other.gameObject);
                 }
@@ -95,7 +95,7 @@ public class playerdirection : MonoBehaviour
             {
                 if (count > 0)
                 {
-                    count--;
+                    count-=1;
                     Debug.Log("count" + count);
                     CollectionBox2AddCount();
                 }
@@ -113,7 +113,7 @@ public class playerdirection : MonoBehaviour
             {
                 if (count > 0)
                 {
-                    count--;
+                    count-=1;
                     Debug.Log("count" + count);
                     CollectionBox2AddCount();
                 }
