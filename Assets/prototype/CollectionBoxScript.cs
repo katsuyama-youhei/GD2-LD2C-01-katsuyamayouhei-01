@@ -22,6 +22,8 @@ public class CollectionBoxScript : MonoBehaviour
     AudioSource audioSource;
     public AudioClip sound;
 
+    private int loseCoinCount;
+
     // private Transform transform;
 
     // Start is called before the first frame update
@@ -34,6 +36,8 @@ public class CollectionBoxScript : MonoBehaviour
         count = 0;
         // transform=GetComponent<Transform>();
         audioSource = GetComponent<AudioSource>();
+
+        loseCoinCount = 0;
 
     }
 
@@ -91,17 +95,22 @@ public class CollectionBoxScript : MonoBehaviour
         {
             if (lostTimer <= 0)
             {
-                count-=1;
-                //@Œy‚­‚È‚è’ïR’l‚ð‘‰Á
-                defaultDrag += 5.0f;
-                audioSource.PlayOneShot(sound);
-                for (int i = 0; i < 20; i++)
+                if (loseCoinCount <= 10)
                 {
-                    Vector3 pos = new Vector3(transform.position.x, transform.position.y, 0);
-                    Instantiate(lostParticlePrehub, pos, Quaternion.identity);
-                }
+                    count -= 1;
+                    //@Œy‚­‚È‚è’ïR’l‚ð‘‰Á
+                    defaultDrag += 5.0f;
+                    audioSource.PlayOneShot(sound);
+                    for (int i = 0; i < 20; i++)
+                    {
+                        Vector3 pos = new Vector3(transform.position.x, transform.position.y, 0);
+                        Instantiate(lostParticlePrehub, pos, Quaternion.identity);
+                    }
 
-                lostTimer = 1.0f;
+                    lostTimer = 1.0f;
+                    loseCoinCount += 1;
+                }
+               
             }
            
         }
