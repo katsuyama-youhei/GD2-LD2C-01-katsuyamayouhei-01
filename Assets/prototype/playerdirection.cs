@@ -21,6 +21,8 @@ public class playerdirection : MonoBehaviour
 
     public AudioClip sound1;
     public AudioClip sound2;
+
+    public AudioClip addCoin2Box;
     AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -125,9 +127,12 @@ public class playerdirection : MonoBehaviour
                 {
                     if (count > 0)
                     {
+                        audioSource.PlayOneShot(addCoin2Box);
                         count -= 1;
                         Debug.Log("count" + count);
+                       
                         CollectionBox2AddCount();
+                        
                     }
                     isRelese = false;
                 }             
