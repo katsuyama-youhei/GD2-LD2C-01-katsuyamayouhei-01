@@ -7,6 +7,9 @@ public class SpaceMoveScript : MonoBehaviour
 {
     public float moveDistance = 1.0f; // 上下移動の距離
     public float duration = 2.0f; // アニメーションの時間
+
+    public GameObject text;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,4 +28,13 @@ public class SpaceMoveScript : MonoBehaviour
         // 上下のアニメーションを実行
         transform.DOMove(endPos, duration).SetLoops(-1, LoopType.Yoyo);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            text.SetActive(true);
+        }
+    }
+
 }

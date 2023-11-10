@@ -7,6 +7,8 @@ public class FadeSceneScript : MonoBehaviour
     [SerializeField] private string loadScene;
     [SerializeField] private Color fadeColor = Color.black;
     [SerializeField] private float fadeSpeedMultiplier = 1.0f;
+
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class FadeSceneScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+          
             Initiate.Fade(loadScene, fadeColor, fadeSpeedMultiplier);
         }
     }
