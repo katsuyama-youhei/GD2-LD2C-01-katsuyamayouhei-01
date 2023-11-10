@@ -10,13 +10,14 @@ public class ParticleScript : MonoBehaviour
     private float leftLifeTime;
     private Vector3 velocity;
     private Vector3 defaultScale;
+    public float maxVelocity;
     // Start is called before the first frame update
     void Start()
     {
-        lifeTimer = 0.3f;
+        lifeTimer = 0.2f;
         leftLifeTime = lifeTimer;
         defaultScale = transform.localScale;
-        float maxVelocity = 15;
+        
         velocity = new Vector3
             (
             Random.Range(-maxVelocity, maxVelocity),

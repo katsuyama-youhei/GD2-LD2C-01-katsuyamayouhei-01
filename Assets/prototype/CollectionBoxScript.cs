@@ -55,7 +55,7 @@ public class CollectionBoxScript : MonoBehaviour
 
         }
 
-        for(int i = 0; i < 15; i++)
+        for(int i = 0; i < 20; i++)
         {
             Vector3 pos = new Vector3(transform.position.x, transform.position.y, 0);
             Instantiate(particlePrehub,pos, Quaternion.identity);
@@ -75,7 +75,7 @@ public class CollectionBoxScript : MonoBehaviour
                 count-=1;
                 //@Œy‚­‚È‚è’ïR’l‚ð‘‰Á
                 defaultDrag += 5.0f;
-                lostTimer = 2.0f;
+                lostTimer = 1.0f;
             }
            
         }
@@ -88,6 +88,14 @@ public class CollectionBoxScript : MonoBehaviour
     {
         // “G‚Æ‚ÌÕ“Ë‚ÅŽæ“¾•¨‚ÌŒ¸­
       
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            LoseCount();
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             LoseCount();

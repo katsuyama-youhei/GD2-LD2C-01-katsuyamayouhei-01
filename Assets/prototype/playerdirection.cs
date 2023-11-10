@@ -17,6 +17,8 @@ public class playerdirection : MonoBehaviour
     private float releseTimer;
     private bool isRelese;
 
+    public GameObject particlePrehub;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +89,11 @@ public class playerdirection : MonoBehaviour
                 {
                     count+=1;
                     Debug.Log("count" + count);
+                    for (int i = 0; i < 20; i++)
+                    {
+                        Vector3 pos = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y, 0);
+                        Instantiate(particlePrehub, pos, Quaternion.identity);
+                    }
                     Destroy(other.gameObject);
                 }
                 else
