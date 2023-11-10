@@ -13,6 +13,9 @@ public class CollectionBoxScript : MonoBehaviour
     private float lostTimer = 0;
 
     public GameObject particlePrehub;
+
+    public GameObject lostParticlePrehub;
+
     private Transform transform;
 
     // Start is called before the first frame update
@@ -75,6 +78,13 @@ public class CollectionBoxScript : MonoBehaviour
                 count-=1;
                 //@Œy‚­‚È‚è’ïR’l‚ğ‘‰Á
                 defaultDrag += 5.0f;
+
+                for (int i = 0; i < 20; i++)
+                {
+                    Vector3 pos = new Vector3(transform.position.x, transform.position.y, 0);
+                    Instantiate(lostParticlePrehub, pos, Quaternion.identity);
+                }
+
                 lostTimer = 1.0f;
             }
            
