@@ -43,19 +43,19 @@ public class playerdirection : MonoBehaviour
     {
         if (horizontalInput > 0)
         {
-            wapu = new Vector3(1f, 0f, 0f);
+            wapu = new Vector3(0.8f, 0f, 0f);
         }
         else if (horizontalInput < 0)
         {
-            wapu = new Vector3(-1f, 0f, 0f);
+            wapu = new Vector3(-0.8f, 0f, 0f);
         }
         else if (verticalInput < 0)
         {
-            wapu = new Vector3(0f, -1f, 0f);
+            wapu = new Vector3(0f, -0.8f, 0f);
         }
         else if (verticalInput > 0)
         {
-            wapu = new Vector3(0f, 1f, 0f);
+            wapu = new Vector3(0f, 0.8f, 0f);
         }
     }
 
