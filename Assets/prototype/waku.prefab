@@ -130,7 +130,7 @@ MonoBehaviour:
   particlePrehub: {fileID: 8923195539546819104, guid: f1bdc74298a38554788e2c419f49098b, type: 3}
   sound1: {fileID: 8300000, guid: 202356a3ec3579f4d90a8d5b1e9ac6d2, type: 3}
   sound2: {fileID: 8300000, guid: 5eb43d3c4961e214391b086161a44ea0, type: 3}
-  addCoin2Box: {fileID: 8300000, guid: c5467ee5747684c4eb94adcd5b4b4a69, type: 3}
+  addCoin2Box: {fileID: 8300000, guid: b78d0a182c82bf7489ebc6e80f138869, type: 3}
 --- !u!50 &-8480324798532271956
 Rigidbody2D:
   serializedVersion: 4

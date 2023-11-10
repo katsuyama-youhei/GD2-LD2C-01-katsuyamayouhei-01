@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CollectionBoxScript : MonoBehaviour
@@ -18,7 +19,10 @@ public class CollectionBoxScript : MonoBehaviour
 
     public GameObject numberLostText;
 
-   // private Transform transform;
+    AudioSource audioSource;
+    public AudioClip sound;
+
+    // private Transform transform;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +32,9 @@ public class CollectionBoxScript : MonoBehaviour
         // オブジェクトの抵抗値を設定
         rb2d.drag = defaultDrag;
         count = 0;
-       // transform=GetComponent<Transform>();
-     
+        // transform=GetComponent<Transform>();
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -89,7 +94,7 @@ public class CollectionBoxScript : MonoBehaviour
                 count-=1;
                 //　軽くなり抵抗値を増加
                 defaultDrag += 5.0f;
-
+                audioSource.PlayOneShot(sound);
                 for (int i = 0; i < 20; i++)
                 {
                     Vector3 pos = new Vector3(transform.position.x, transform.position.y, 0);
