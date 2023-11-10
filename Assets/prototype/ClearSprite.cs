@@ -9,6 +9,8 @@ public class ClearSprite : MonoBehaviour
 
     public GorlScript gorlScript;
 
+    
+
     [SerializeField] private string loadScene;
     [SerializeField] private Color fadeColor = Color.black;
     [SerializeField] private float fadeSpeedMultiplier = 1.0f;
@@ -25,6 +27,7 @@ public class ClearSprite : MonoBehaviour
         if (gorlScript.isClea)
         {
             clearText.SetActive(true);
+            
 
             if (Input.GetKeyDown(KeyCode.Space))
             {

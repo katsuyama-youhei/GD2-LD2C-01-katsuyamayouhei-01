@@ -16,7 +16,9 @@ public class CollectionBoxScript : MonoBehaviour
 
     public GameObject lostParticlePrehub;
 
-    private Transform transform;
+    public GameObject numberLostText;
+
+   // private Transform transform;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,7 @@ public class CollectionBoxScript : MonoBehaviour
         // オブジェクトの抵抗値を設定
         rb2d.drag = defaultDrag;
         count = 0;
-        transform=GetComponent<Transform>();
+       // transform=GetComponent<Transform>();
      
     }
 
@@ -38,6 +40,15 @@ public class CollectionBoxScript : MonoBehaviour
             lostTimer -= Time.deltaTime;
         }
         Debug.Log("timer" + lostTimer);
+
+        if (count >= 5)
+        {
+            numberLostText.SetActive(false);
+        }
+        else
+        {
+            numberLostText.SetActive(true);
+        }
         
     }
 
