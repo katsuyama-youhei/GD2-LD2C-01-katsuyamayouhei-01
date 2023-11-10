@@ -19,6 +19,10 @@ public class playerdirection : MonoBehaviour
 
     public GameObject particlePrehub;
 
+    public AudioClip sound1;
+    public AudioClip sound2;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +34,8 @@ public class playerdirection : MonoBehaviour
         releseTime = 0.5f;
         releseTimer = releseTime;
         isRelese = true;
+
+        audioSource=GetComponent<AudioSource>();
 
     }
 
@@ -89,6 +95,7 @@ public class playerdirection : MonoBehaviour
                 {
                     count+=1;
                     Debug.Log("count" + count);
+                    audioSource.PlayOneShot(sound1);
                     for (int i = 0; i < 20; i++)
                     {
                         Vector3 pos = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y, 0);
@@ -98,6 +105,11 @@ public class playerdirection : MonoBehaviour
                 }
                 else
                 {
+                    if (!audioSource.isPlaying)
+                    {
+                        audioSource.PlayOneShot(sound2);
+                    }
+                    
                     Debug.Log("over");
                 }
 
