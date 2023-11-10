@@ -9,7 +9,7 @@ public class ClearSprite : MonoBehaviour
 
     public GorlScript gorlScript;
 
-    
+    public GameObject spaceText;
 
     [SerializeField] private string loadScene;
     [SerializeField] private Color fadeColor = Color.black;
@@ -27,7 +27,7 @@ public class ClearSprite : MonoBehaviour
         if (gorlScript.isClea)
         {
             clearText.SetActive(true);
-            
+            spaceText.SetActive(true);
 
             if (Input.GetKeyDown(KeyCode.Space))
             {

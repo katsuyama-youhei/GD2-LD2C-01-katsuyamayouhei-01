@@ -45,14 +45,14 @@ public class PlayerNumberScript : MonoBehaviour
         sprites = GetComponent<SpriteRenderer>();
         waku = GameObject.FindGameObjectWithTag("Wakuwaku");
         CheakNull();
-        transform.position = new Vector3(mainCamera.transform.position.x + orijinx, mainCamera.transform.position.y + orijiny, 0f);
+        transform.position = new Vector3(mainCamera.transform.position.x + orijinx, mainCamera.transform.position.y + orijiny, -2f);
     }
 
     // Update is called once per frame
     void Update()
     {
        
-        transform.position = new Vector3(mainCamera.transform.position.x + orijinx, mainCamera.transform.position.y + orijiny, 0f);
+        transform.position = new Vector3(mainCamera.transform.position.x + orijinx, mainCamera.transform.position.y + orijiny, -2f);
         
         if (playerdirectionScript.count == 1)
         {
