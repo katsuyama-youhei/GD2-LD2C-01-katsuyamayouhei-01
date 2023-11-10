@@ -41,15 +41,26 @@ public class EnemyScript : MonoBehaviour
         {
             Vector2 direction = (target.position - transform.position).normalized;
 
+            // 方向ベクトルから角度を求める
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            // オブジェクトの向きを設定
+            transform.rotation = Quaternion.AngleAxis(angle + 180f, Vector3.forward);
+
             rb.velocity = direction * movementSpeed;
-            loopSequence.Pause();
+            if (loopSequence.IsPlaying())
+            {
+                loopSequence.Pause();
+            }
 
         }
         else
         {
             
             rb.velocity = Vector2.zero;
-            loopSequence.Play();
+            
+                loopSequence.Play();
+            
         }
 
     }

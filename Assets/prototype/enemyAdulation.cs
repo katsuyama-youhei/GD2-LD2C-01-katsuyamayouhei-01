@@ -47,6 +47,24 @@ public class enemyAdulation : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Cage"))
+        {
+            CollectionBoxScript collectionBoxScript;
+            collectionBoxScript= other.GetComponent<CollectionBoxScript>();
+            if (collectionBoxScript == null)
+            {
+                return;
+            }
+            if(collectionBoxScript.count == 0)
+            {
+                enemyScript.detection = false;
+            }
+            
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Cage"))
