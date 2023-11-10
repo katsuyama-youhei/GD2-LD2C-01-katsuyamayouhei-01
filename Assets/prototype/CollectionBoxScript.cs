@@ -6,7 +6,7 @@ public class CollectionBoxScript : MonoBehaviour
 {
     Rigidbody2D rb2d;
     //@’ïR‚Ì‰Šú’l
-    private float defaultDrag = 100.0f;
+    private float defaultDrag = 50.0f;
     //@‰ñŽû‚µ‚½”
     public int count;
 
@@ -44,12 +44,12 @@ public class CollectionBoxScript : MonoBehaviour
         // Žæ“¾”‚ð‘‰Á
         count+=1;
         // ’ïR’l‚ð‰º‚°—Ž‰º‚ð‘‚ß‚é
-        if (defaultDrag > 0)
+        if (defaultDrag > 10)
         {
-            defaultDrag -= 10.0f;
-            if (defaultDrag < 0)
+            defaultDrag -= 5.0f;
+            if (defaultDrag < 10)
             {
-                defaultDrag = 0;
+                defaultDrag = 10;
             }
             rb2d.drag = defaultDrag;
 
@@ -74,7 +74,7 @@ public class CollectionBoxScript : MonoBehaviour
             {
                 count-=1;
                 //@Œy‚­‚È‚è’ïR’l‚ð‘‰Á
-                defaultDrag += 10.0f;
+                defaultDrag += 5.0f;
                 lostTimer = 2.0f;
             }
            
