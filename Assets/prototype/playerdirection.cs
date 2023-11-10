@@ -91,7 +91,7 @@ public class playerdirection : MonoBehaviour
         if (other.CompareTag("Cage"))
         {
             // この条件を変えて取得物のリリースを行う
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
                 if (count > 0)
                 {
@@ -109,7 +109,7 @@ public class playerdirection : MonoBehaviour
         {
             spriteRenderer.color = Color.green;
             // この条件を変えて取得物のリリースを行う
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
                 if (count > 0)
                 {

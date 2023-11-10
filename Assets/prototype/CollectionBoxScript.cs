@@ -12,6 +12,9 @@ public class CollectionBoxScript : MonoBehaviour
 
     private float lostTimer = 0;
 
+    public GameObject particlePrehub;
+    private Transform transform;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,7 @@ public class CollectionBoxScript : MonoBehaviour
         // オブジェクトの抵抗値を設定
         rb2d.drag = defaultDrag;
         count = 0;
+        transform=GetComponent<Transform>();
      
     }
 
@@ -50,6 +54,13 @@ public class CollectionBoxScript : MonoBehaviour
             rb2d.drag = defaultDrag;
 
         }
+
+        for(int i = 0; i < 15; i++)
+        {
+            Vector3 pos = new Vector3(transform.position.x, transform.position.y, 0);
+            Instantiate(particlePrehub,pos, Quaternion.identity);
+        }
+
         Debug.Log("Drag" + defaultDrag);
     }
 

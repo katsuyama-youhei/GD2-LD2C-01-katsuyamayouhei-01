@@ -42,12 +42,21 @@ public class Number10Script : MonoBehaviour
         if (collectionBoxScript.count < 10)
         {
             sprites.sprite = sprite0;
-            sprites.color = Color.white;
+           
         }
         else if (collectionBoxScript.count >= 10)
         {
             sprites.sprite = sprite1;
+          
+        }
+        
+        if (collectionBoxScript.count >= 5)
+        {
             sprites.color = Color.yellow;
+        }
+        else
+        {
+            sprites.color = Color.white;
         }
     }
 }
