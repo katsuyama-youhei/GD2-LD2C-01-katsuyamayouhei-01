@@ -13,6 +13,10 @@ public class playerdirection : MonoBehaviour
     // 取得上限
     public int count;
 
+    private float releseTime;
+    private float releseTimer;
+    private bool isRelese;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,13 +24,18 @@ public class playerdirection : MonoBehaviour
         collectionBox = GameObject.FindGameObjectWithTag("Cage");
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         CheakNull();
-        
+
+        releseTime = 0.5f;
+        releseTimer = releseTime;
+        isRelese = true;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         PositionMove();
+        IsReleseTimer();
 
     }
     // プレイヤーの向き
@@ -93,12 +102,17 @@ public class playerdirection : MonoBehaviour
             // この条件を変えて取得物のリリースを行う
             if (Input.GetKey(KeyCode.Space))
             {
-                if (count > 0)
+                if (isRelese)
                 {
-                    count-=1;
-                    Debug.Log("count" + count);
-                    CollectionBox2AddCount();
-                }
+                    if (count > 0)
+                    {
+                        count -= 1;
+                        Debug.Log("count" + count);
+                        CollectionBox2AddCount();
+                    }
+                    isRelese = false;
+                }             
+               
             }
         }
     }
@@ -111,12 +125,16 @@ public class playerdirection : MonoBehaviour
             // この条件を変えて取得物のリリースを行う
             if (Input.GetKey(KeyCode.Space))
             {
-                if (count > 0)
+                if (isRelese)
                 {
-                    count-=1;
-                    Debug.Log("count" + count);
-                    CollectionBox2AddCount();
+                    if (count > 0)
+                    {
+                        count -= 1;
+                        Debug.Log("count" + count);
+                        CollectionBox2AddCount();
+                    }
                 }
+                isRelese = false;
             }
         }
         else if (other.CompareTag("BoxCoin"))
@@ -181,4 +199,18 @@ public class playerdirection : MonoBehaviour
             return;
         }
     }
+
+    private void IsReleseTimer()
+    {
+        if (!isRelese)
+        {
+            releseTimer-=1f* Time.deltaTime;
+        }
+        if (releseTimer <= 0)
+        {
+            isRelese = true;
+            releseTimer = releseTime;
+        }
+    }
+
 }
