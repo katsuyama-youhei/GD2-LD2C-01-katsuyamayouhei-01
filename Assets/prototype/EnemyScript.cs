@@ -25,7 +25,9 @@ public class EnemyScript : MonoBehaviour
 
         // transform.DOMove(end, seconds).SetLoops(-1, LoopType.Yoyo);
         loopSequence.Append(transform.DOLocalMoveX(2f, 3f).SetRelative().SetEase(Ease.Linear));
+        loopSequence.Join(transform.DORotate(new Vector3(0f, 0f, 180f), 0.1f, RotateMode.FastBeyond360).SetEase(Ease.Linear));
         loopSequence.Append(transform.DOLocalMoveX(-2f, 3f).SetRelative().SetEase(Ease.Linear));
+        loopSequence.Join(transform.DORotate(Vector3.zero, 0.1f, RotateMode.FastBeyond360).SetEase(Ease.Linear));
         loopSequence.SetLoops(-1);
 
     }
